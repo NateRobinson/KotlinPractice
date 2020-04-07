@@ -27,13 +27,7 @@ class LessonPresenter(private val activity: LessonActivity) {
   }
 
   fun showPlayback() {
-    val playbackLessons = ArrayList<Lesson>()
-    for (lesson in lessons) {
-      if (lesson.state === Lesson.State.PLAYBACK) {
-        playbackLessons.add(lesson)
-      }
-    }
-    activity.showResult(playbackLessons)
+    activity.showResult(lessons.filter { it.state === Lesson.State.PLAYBACK })
   }
 
   companion object {
